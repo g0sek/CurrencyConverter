@@ -63,6 +63,9 @@ public class Controller {
         }
     }
 
+    public void setCurrencyOne(){currencyOne = currencyOneBox.getValue();}
+    public void setCurrencyTwo(){currencyTwo = currencyTwoBox.getValue();}
+
     private void getApiKey(){
         BufferedReader reader = null;
         try{
@@ -108,5 +111,37 @@ public class Controller {
         currencyList.addAll(jsonObject.getAsJsonObject("currencies").keySet());
         return currencyList;
 
+    }
+
+    public void convertCurrency() throws IOException {
+        if(enterAmountField.getText().equals("") || enterAmountField.getText() == null) return;
+        if(currencyOne == null || currencyTwo == null) return;
+
+        float conversionRate = getConversionRate();
+
+        // calculate conversion
+        float conversionResult = Float.parseFloat(enterAmountField.getText()) * conversionRate;
+
+        // display result
+        resultLabel.setText(conversionResult + " " + currencyTwo);
+    }
+
+    private float getConversionRate() throws IOException{
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+
+        Request request = new Request.Builder()
+                .url("https://api.apilayer.com/currency_data/live?source=" + currencyOne + "&currencies=" + currencyTwo)
+                .addHeader("apikey", apiKey)
+                .method("GET", null)
+            .build();
+        Response response = client.newCall(request).execute();
+
+        Gson gson = new Gson();
+        JsonElement jsonElement = gson.fromJson(response.body().charStream(), JsonElement.class);
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+        // return the conversion rate
+        String key = currencyOne + currencyTwo;
+        return Float.parseFloat(jsonObject.getAsJsonObject("quotes").get(key).getAsString());
     }
 }

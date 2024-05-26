@@ -27,16 +27,16 @@
 
     <!--Currency #1 Drop Down-->
     <ComboBox fx:id="currencyOneBox" AnchorPane.topAnchor="285" AnchorPane.leftAnchor="30"
-              prefWidth="480" promptText="Select From Currency">
+              prefWidth="480" promptText="Select From Currency" onAction="#setCurrencyOne">
     </ComboBox>
-    <!--Convert Button-->
+    <!--Currency #2 Drop Down-->
     <ComboBox fx:id="currencyTwoBox" AnchorPane.topAnchor="395" AnchorPane.leftAnchor="30"
-              prefWidth="480" promptText="Select to Currency">
+              prefWidth="480" promptText="Select to Currency" onAction="#setCurrencyTwo">
     </ComboBox>
 
     <!--Convert Button-->
     <Button fx:id="convertButton" AnchorPane.topAnchor="500" AnchorPane.leftAnchor="30"
-              prefWidth="480" text="Convert">
+              prefWidth="480" text="Convert" onAction="#convertCurrency">
     </Button>
 
     <!--Result-->
