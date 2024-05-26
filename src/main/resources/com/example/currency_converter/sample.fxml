@@ -15,7 +15,7 @@
             prefHeight="760" prefWidth="540">
   <children>
     <!--Logo-->
-    <Label AnchorPane.leftAnchor="125" AnchorPane.topAnchor="25" prefHeight="100" prefWidth="300">
+    <Label AnchorPane.leftAnchor="125" AnchorPane.topAnchor="25" prefHeight="100" prefWidth="300" alignment="CENTER">
         <graphic>
             <ImageView fx:id="logo" fitHeight="100" fitWidth="300" preserveRatio="true"></ImageView>
         </graphic>
