@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane fx:controller="com.example.currency_converter.Controller"
+            xmlns:fx="http://javafx.com/fxml"
+            prefHeight="760" prefWidth="540">
+  <children>
+    <!--Logo-->
+    <Label AnchorPane.leftAnchor="125" AnchorPane.topAnchor="25" prefHeight="100" prefWidth="300">
+        <graphic>
+            <ImageView fx:id="logo" fitHeight="100" fitWidth="300" preserveRatio="true"></ImageView>
+        </graphic>
+    </Label>
+
+    <!--Enter Amount-->
+    <TextField fx:id="enterAmountField" AnchorPane.topAnchor="175" AnchorPane.leftAnchor="30"
+               prefWidth="480" promptText="Enter Amount" />
+
+    <!--Currency #1 Drop Down-->
+    <ComboBox fx:id="currencyOneBox" AnchorPane.topAnchor="285" AnchorPane.leftAnchor="30"
+              prefWidth="480" promptText="Select From Currency">
+    </ComboBox>
+    <!--Convert Button-->
+    <ComboBox fx:id="currencyTwoBox" AnchorPane.topAnchor="395" AnchorPane.leftAnchor="30"
+              prefWidth="480" promptText="Select to Currency">
+    </ComboBox>
+
+    <!--Convert Button-->
+    <Button fx:id="convertButton" AnchorPane.topAnchor="500" AnchorPane.leftAnchor="30"
+              prefWidth="480" text="Convert">
+    </Button>
+
+    <!--Result-->
+    <Label fx:id="resultLabel" AnchorPane.topAnchor="600" AnchorPane.leftAnchor="30"
+           alignment="CENTER" prefHeight="125" prefWidth="480"/>
+  </children>
+</AnchorPane>
