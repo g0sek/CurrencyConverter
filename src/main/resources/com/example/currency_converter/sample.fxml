@@ -10,12 +10,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ComboBox?>
+<?import java.net.URL?>
+<?import java.lang.String?>
 <AnchorPane fx:controller="com.example.currency_converter.Controller"
             xmlns:fx="http://javafx.com/fxml"
             prefHeight="760" prefWidth="540">
+  <stylesheets>
+    <URL value="@../currency_converter/style.css"/>
+  </stylesheets>
   <children>
     <!--Logo-->
-    <Label AnchorPane.leftAnchor="125" AnchorPane.topAnchor="25" prefHeight="100" prefWidth="300" alignment="CENTER">
+    <Label AnchorPane.leftAnchor="125" AnchorPane.topAnchor="35" prefHeight="100" prefWidth="300" alignment="CENTER" scaleX="1.5" scaleY="1.5">
         <graphic>
             <ImageView fx:id="logo" fitHeight="100" fitWidth="300" preserveRatio="true"></ImageView>
         </graphic>
@@ -23,24 +28,36 @@
 
     <!--Enter Amount-->
     <TextField fx:id="enterAmountField" AnchorPane.topAnchor="175" AnchorPane.leftAnchor="30"
-               prefWidth="480" promptText="Enter Amount" />
+               prefWidth="480" promptText="Enter Amount" styleClass="common-component"/>
 
     <!--Currency #1 Drop Down-->
     <ComboBox fx:id="currencyOneBox" AnchorPane.topAnchor="285" AnchorPane.leftAnchor="30"
               prefWidth="480" promptText="Select From Currency" onAction="#setCurrencyOne">
+      <styleClass>
+        <String fx:value="common-component"/>
+        <String fx:value="hand-cursor"/>
+      </styleClass>
     </ComboBox>
     <!--Currency #2 Drop Down-->
     <ComboBox fx:id="currencyTwoBox" AnchorPane.topAnchor="395" AnchorPane.leftAnchor="30"
               prefWidth="480" promptText="Select to Currency" onAction="#setCurrencyTwo">
+      <styleClass>
+        <String fx:value="common-component"/>
+        <String fx:value="hand-cursor"/>
+      </styleClass>
     </ComboBox>
 
     <!--Convert Button-->
     <Button fx:id="convertButton" AnchorPane.topAnchor="500" AnchorPane.leftAnchor="30"
               prefWidth="480" text="Convert" onAction="#convertCurrency">
+      <styleClass>
+        <String fx:value="common-component"/>
+        <String fx:value="hand-cursor"/>
+      </styleClass>
     </Button>
 
     <!--Result-->
     <Label fx:id="resultLabel" AnchorPane.topAnchor="600" AnchorPane.leftAnchor="30"
-           alignment="CENTER" prefHeight="125" prefWidth="480"/>
+           alignment="CENTER" prefHeight="125" prefWidth="480" styleClass="common-component"/>
   </children>
 </AnchorPane>
